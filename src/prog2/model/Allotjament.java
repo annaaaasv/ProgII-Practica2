@@ -74,6 +74,7 @@ public abstract class Allotjament implements InAllotjament{
                 ", estada mínima en temp BAIXA: " + estadaMinimaBAIXA + ".";
     }
 
+    //este no cal no?
 /*    /** {@inheritDoc}
     @Override
     public abstract boolean correcteFuncionament();
@@ -84,6 +85,7 @@ public abstract class Allotjament implements InAllotjament{
      *
      * @param tasca Objecte de tipus TascaManteniment.
      */
+    //faltene stos dos
     @Override
     public void tancarAllotjament(TascaManteniment tasca) {
 

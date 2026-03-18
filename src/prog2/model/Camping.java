@@ -13,7 +13,7 @@ public class Camping implements InCamping{
     private ArrayList<Allotjament> llistaAllotjaments;
 
 
-    public Camping(String nom){ //constructor
+    public Camping(String nom){
         nomCamping = nom;
 
         this.llistaAllotjaments = new ArrayList<>();
