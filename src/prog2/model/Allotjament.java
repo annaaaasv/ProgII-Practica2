@@ -1,5 +1,7 @@
 package prog2.model;
 
+import static prog2.model.TascaManteniment.TipusTascaManteniment.*;
+
 public abstract class Allotjament implements InAllotjament{
     private String nom;
     private String idAllotjament;
@@ -74,21 +76,26 @@ public abstract class Allotjament implements InAllotjament{
                 ", estada mínima en temp BAIXA: " + estadaMinimaBAIXA + ".";
     }
 
-    //este no cal no?
-/*    /** {@inheritDoc}
-    @Override
-    public abstract boolean correcteFuncionament();
-*/
-
     /**
      * Modifica l'estat de l'allotjament a No Operatiu i la il·luminació depenent de la tasca rebuda com a paràmetre
      *
      * @param tasca Objecte de tipus TascaManteniment.
      */
-    //faltene stos dos
+
     @Override
     public void tancarAllotjament(TascaManteniment tasca) {
-
+        operatiu = false;
+        switch(tasca.getTipus()){
+            case Reparacio, RevisioTecnica:
+                iluminacio = "50%";
+                break;
+            case Neteja:
+                iluminacio = "100%";
+                break;
+            case Desinfeccio:
+                iluminacio = "0%";
+                break;
+        }
     }
 
     /**
@@ -96,6 +103,8 @@ public abstract class Allotjament implements InAllotjament{
      */
     @Override
     public void obrirAllotjament() {
+        operatiu = true;
+        iluminacio = "100%";
 
     }
 }

@@ -1,8 +1,16 @@
 package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Objects;
 
 public class LlistaAllotjaments implements InLlistaAllotjaments{
+    private ArrayList<Allotjament> llistaAllotjaments;
+
+    public LlistaAllotjaments(ArrayList<Allotjament> llistaAllotjaments){
+        this.llistaAllotjaments = llistaAllotjaments;
+    }
 
     /**
      * Afegeix un allotjament rebut per paràmetre a la llista d'allotjaments.
@@ -10,9 +18,10 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      * @param allotjament Objecte de tipus Allotjament
      * @throws ExcepcioCamping Aquest mètode podria llançar una excepció si fos necessari.
      */
+    //QUINA EXCEPCIÓ LLANÇA?
     @Override
     public void afegirAllotjament(Allotjament allotjament) throws ExcepcioCamping {
-
+        llistaAllotjaments.add(allotjament);
     }
 
     /**
@@ -20,7 +29,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      */
     @Override
     public void buidar() {
-
+        llistaAllotjaments.clear();
     }
 
     /**
@@ -33,7 +42,15 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      */
     @Override
     public String llistarAllotjaments(String estat) throws ExcepcioCamping {
-        return "";
+        Iterator<Allotjament> it = llistaAllotjaments.iterator();
+        while(it.hasNext()) {
+            Allotjament a = it.next();
+            if () {
+//que cony es estat, ilumiancio???? i guess
+
+                return "";
+            }
+        }
     }
 
     /**
@@ -43,6 +60,13 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      */
     @Override
     public boolean containsAllotjamentOperatiu() {
+        Iterator<Allotjament> it = llistaAllotjaments.iterator();
+        while(it.hasNext()) {
+            Allotjament a = it.next();
+            if (a.isOperatiu()) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -52,10 +76,12 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      * @param allotjament
      * @return boolean
      */
+    //s'ha de fer amb iterador o es pot fer aixi i ya????
     @Override
     public boolean contains(Allotjament allotjament) {
-        return false;
+        return llistaAllotjaments.contains(allotjament);
     }
+
 
     /**
      * Busca l'allotjament amb el nom rebut per paràmetre i el retorna. En cas que no existeixi llança una excepció.
@@ -66,6 +92,14 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      */
     @Override
     public Allotjament getAllotjament(String id) throws ExcepcioCamping {
-        return null;
+        Iterator<Allotjament> it = llistaAllotjaments.iterator();
+        while(it.hasNext()){
+            Allotjament a = it.next();
+            if (Objects.equals(a.getId(), id)){
+                return a;
+            }
+        }
+        throw new ExcepcioCamping("No existeix l'allotjament amb id " + id);
+
     }
 }
