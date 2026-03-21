@@ -12,6 +12,10 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
         this.llistaAllotjaments = llistaAllotjaments;
     }
 
+    public LlistaAllotjaments() {
+        llistaAllotjaments = new ArrayList<>();
+    }
+
     /**
      * Afegeix un allotjament rebut per paràmetre a la llista d'allotjaments.
      *
@@ -20,7 +24,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      */
     //QUINA EXCEPCIÓ LLANÇA?
     @Override
-    public void afegirAllotjament(Allotjament allotjament) throws ExcepcioCamping {
+    public void afegirAllotjament(Allotjament allotjament){ // throws ExcepcioCamping
         llistaAllotjaments.add(allotjament);
     }
 
@@ -40,17 +44,14 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      * @return String
      * @throws ExcepcioCamping Aquest mètode llança una excepció en cas que no hi hagi allotjaments en l'estat passat com a paràmetre.
      */
+
     @Override
     public String llistarAllotjaments(String estat) throws ExcepcioCamping {
-        Iterator<Allotjament> it = llistaAllotjaments.iterator();
-        while(it.hasNext()) {
-            Allotjament a = it.next();
-            if () {
+
 //que cony es estat, ilumiancio???? i guess
 
                 return "";
-            }
-        }
+
     }
 
     /**

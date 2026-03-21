@@ -22,9 +22,6 @@ public class Glamping extends Casa{
                 ", material= " + material + ", casa mascota= " + casaMascota + "}";
     }
 
-    @Override
-    public boolean correcteFuncionament(){
-        return casaMascota;
-    }
+
 
 }

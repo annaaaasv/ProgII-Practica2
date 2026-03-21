@@ -18,10 +18,6 @@ public class BungalowPremium extends Bungalow{
                 ", serveis extra= " + serveisExtra + ", codi wifi= " + codiWifi + "}";
     }
 
-    @Override
-    public boolean correcteFuncionament(){
-        int longWifi = codiWifi.length();
-        return isAireFred() && (longWifi <= 16 && longWifi >= 8);
-    }
+
 
 }

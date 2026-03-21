@@ -23,10 +23,7 @@ public class Parcela extends Allotjament{
         this.connexioElectrica = connexioElectrica;
     }
 
-    @Override
-    public boolean correcteFuncionament(){
-        return connexioElectrica;
-    }
+
 
     @Override
     public String toString(){

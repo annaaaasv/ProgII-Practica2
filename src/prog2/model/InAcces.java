@@ -45,5 +45,5 @@ public interface InAcces {
      * Retorna la llista d'allotjaments associats a l'accés
      * @return
      */
-    public LlistaAllotjaments getAAllotjaments();
+    public LlistaAllotjaments getAllotjaments();
 }

@@ -28,10 +28,7 @@ public class Bungalow extends Casa {
     }
 
 
-    @Override
-    public boolean correcteFuncionament(){
-        return aireFred;
-    }
+
 
 
 }
