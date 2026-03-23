@@ -7,4 +7,14 @@ public class AccesAsfalt extends Acces{
         super(nom, accessibilitat);
         this.metres = metres;
     }
+
+    /**
+     * Retorna si l'accés permet accessibilitat amb cotxe o no.
+     *
+     * @return
+     */
+    @Override
+    public boolean isAccessibilitat() {
+        return false;
+    }
 }

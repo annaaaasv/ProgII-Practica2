@@ -87,6 +87,13 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
      */
     @Override
     public TascaManteniment getTascaManteniment(int num) throws ExcepcioCamping {
-        return null;
+        Iterator<TascaManteniment> it = llistaTasquesManteniment.iterator();
+        while(it.hasNext()) {
+            TascaManteniment t = it.next();
+            if(t.getNum() == num){
+                return t;
+            }
+        }
+        throw new ExcepcioCamping("No existeix una tasca amb aquest número");
     }
 }

@@ -7,4 +7,14 @@ public class AccesTerra extends Acces{
         super(nom, accessibilitat);
         this.longitud = longitud;
     }
+
+    /**
+     * Retorna si l'accés permet accessibilitat amb cotxe o no.
+     *
+     * @return
+     */
+    @Override
+    public boolean isAccessibilitat() {
+        return false;
+    }
 }

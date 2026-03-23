@@ -39,7 +39,8 @@ public class Camping implements InCamping{
      */
     @Override
     public String llistarAllotjaments(String estat) throws ExcepcioCamping {
-        return "";
+
+return "";
     }
 
     /**
@@ -127,6 +128,8 @@ public class Camping implements InCamping{
      */
     @Override
     public void inicialitzaDadesCamping() {
+    }
 
     }
-}
+
+

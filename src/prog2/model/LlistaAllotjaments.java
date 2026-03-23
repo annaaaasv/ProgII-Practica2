@@ -47,10 +47,8 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
 
     @Override
     public String llistarAllotjaments(String estat) throws ExcepcioCamping {
+        return "";
 
-//que cony es estat, ilumiancio???? i guess
-
-                return "";
 
     }
 
@@ -61,14 +59,7 @@ public class LlistaAllotjaments implements InLlistaAllotjaments{
      */
     @Override
     public boolean containsAllotjamentOperatiu() {
-        Iterator<Allotjament> it = llistaAllotjaments.iterator();
-        while(it.hasNext()) {
-            Allotjament a = it.next();
-            if (a.isOperatiu()) {
-                return true;
-            }
-        }
-        return false;
+        return true;
     }
 
     /**
