@@ -6,10 +6,10 @@ public abstract class Acces implements InAcces{
     private boolean estat;
     private LlistaAllotjaments llistaAllotjaments;
 
-    public Acces(String nom, boolean accessibilitat){
+    public Acces(String nom, boolean estat){//aqui com a parametre va accessibilitat o estat?
         this.nom = nom;
-        this.accessibilitat = accessibilitat;
-        this.estat = accessibilitat;
+        this.accessibilitat = isAccessibilitat();
+        this.estat = true;
         this.llistaAllotjaments = new LlistaAllotjaments();
     }
 
@@ -46,9 +46,8 @@ public abstract class Acces implements InAcces{
      * @return
      */
     @Override
-    public boolean isAccessibilitat() {
-        return accessibilitat;
-    }
+    public abstract boolean isAccessibilitat(); //metode abstracte?????
+    //implementar a cada subclasse
 
     /**
      * Retorna el nom de l'accés

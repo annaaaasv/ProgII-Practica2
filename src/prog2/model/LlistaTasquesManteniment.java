@@ -2,7 +2,16 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
+    private ArrayList<TascaManteniment> llistaTasquesManteniment;
+
+    public LlistaTasquesManteniment(ArrayList<TascaManteniment> llistaTasquesManteniment){
+        this.llistaTasquesManteniment = llistaTasquesManteniment;
+    }
+
     /**
      * Aquest mètode crea una tasca de manteniment amb la informació passada com a paràmetres
      * (número d'identificador, tipus, l'allotjament on s'ha produït, la data, i els dies esperats per completar-la) i l'afegeix a la llista.
@@ -18,6 +27,13 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
      */
     @Override
     public void afegirTascaManteniment(int num, String tipus, Allotjament allotjament, String data, int dies) throws ExcepcioCamping {
+        if(!allotjament.isOperatiu()){
+            throw new ExcepcioCamping("L'allotjament ja té una tasca");
+        }
+        TascaManteniment.TipusTascaManteniment _tipus = TascaManteniment.TipusTascaManteniment.valueOf(tipus);
+        TascaManteniment tascaManteniment = new TascaManteniment(num, _tipus, allotjament, data, dies);
+        llistaTasquesManteniment.add(tascaManteniment);
+        allotjament.setOperatiu(false);
 
     }
 
@@ -29,7 +45,16 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
      */
     @Override
     public void completarTascaManteniment(TascaManteniment tasca) throws ExcepcioCamping {
-
+        tasca.getAllotjament().obrirAllotjament();
+        Iterator<TascaManteniment> it = llistaTasquesManteniment.iterator();
+        while(it.hasNext()) {
+            TascaManteniment t = it.next();
+            if(t == tasca){
+                llistaTasquesManteniment.remove(t);
+                return;
+            }
+        }
+        throw new ExcepcioCamping("No existeix aquesta tasca");
     }
 
     /**
@@ -41,6 +66,14 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment{
      */
     @Override
     public String llistarTasquesManteniment() throws ExcepcioCamping {
+        if(llistaTasquesManteniment.isEmpty()){
+            throw new ExcepcioCamping("No hi ha cap tasca de manteniment");
+        }
+        Iterator<TascaManteniment> it = llistaTasquesManteniment.iterator();
+        while(it.hasNext()) {
+            TascaManteniment t = it.next();
+
+        }
         return "";
     }
 
